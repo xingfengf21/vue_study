@@ -46,8 +46,13 @@
         <p v-show="status === 1">当status为1时显示该行</p>
 
         <ul>
-            <li v-for="book in books">{{book.name}}</li>
+            <li v-for="(book, index) in books">{{index}} - {{book.name}}</li>
         </ul>
+        <template v-for="book in books">
+            <li style="float:left; display:inline;">书名:{{book.name}}</li>
+            <li style="float:left; display:inline;">作者:{{book.author}}</li>
+            <br>
+        </template>
     </div>
     <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
 
@@ -89,9 +94,9 @@
                     }
                 ],
                 books: [
-                    { name: '<<vue.js实战>>' },
-                    { name: '<<Go语言由入门到放弃>>' },
-                    { name: '<<vue.js高级程序设计>>' }
+                    { name: '<<vue.js实战>>', author: 'Alex' },
+                    { name: '<<Go语言由入门到放弃>>', author: 'Tom' },
+                    { name: '<<vue.js高级程序设计>>', author: 'Jack' }
                 ],
                 firstName: "Jack",
                 lastName: "Green",
